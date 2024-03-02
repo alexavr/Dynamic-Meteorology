@@ -1,0 +1,138 @@
+% {{{ TEXT
+\usepackage{xcolor}					% Make managment of colors easier and flaxible
+\usepackage{cmap}					% поиск в PDF
+\usepackage{fontspec}
+    \setmainfont{Raleway}
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{lipsum}
+\usepackage{sectsty}
+    \chapternumberfont{\Huge} 
+    \chaptertitlefont{\Huge}
+% \usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage{indentfirst}
+\frenchspacing
+\usepackage{setspace}				% междустрочный интервал
+\onehalfspacing						% задаем глобально 1.5
+\definecolor{vms}{HTML}{27AE60}    % Текст НФ отсутствовал, но был заменен лекциями ВМС
+\definecolor{noone}{HTML}{E74C3C}    % Текст НФ отсутствовал, но еще не был заменен
+% }}} % TEXT
+
+% {{{ PREAMBULE
+
+\usepackage{fancyhdr}			% Creates headers and footers
+\usepackage{enumerate}          %These two package give custom labels to a list
+\usepackage[shortlabels]{enumitem}
+% Creates the header and footer. You can adjust the look and feel of these here.
+\pagestyle{fancy}
+\fancyhead[l]{Гавриков А.В.}
+\fancyhead[c]{Динамическая метеорология}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} %Creates a horizontal line underneath the header
+\setlength{\headheight}{15pt} %Sets enough space for the header
+% }}} PREAMBULE
+
+% {{{ TEXTBOX
+\usepackage[many]{tcolorbox}    	% for COLORED BOXES (tikz and xcolor included)
+\definecolor{main}{HTML}{5989cf}    % setting main color to be used
+\definecolor{sub}{HTML}{cde4ff}     % setting sub color to be used
+\definecolor{warn}{HTML}{FF5733}    % setting sub color to be used
+
+\newtcolorbox{warn}{
+    fontupper = \bf\large\color{white}, % font weight and size
+    code={\onehalfspacing}, % line spacing
+    % boxrule = 1.5pt,
+    colframe = warn, % frame color
+    colback = warn, % frame color
+}
+\newtcolorbox{boxA}{
+    fontupper = \bf\large, % font weight and size
+    code={\onehalfspacing}, % line spacing
+    boxrule = 1.5pt,
+    colframe = black % frame color
+}
+\newtcolorbox{boxAA}{
+    fontupper = \bf\large\color{white}, % font weight and size
+    code={\onehalfspacing}, % line spacing
+    boxrule = 1.5pt,
+    colframe = red, % frame color
+    colback = red, % frame color
+}
+\newtcolorbox{boxB}{
+    fontupper = \bf\color{main}, % font color
+    boxrule = 1.5pt,
+    colframe = main,
+    rounded corners,
+    arc = 5pt   % corners roundness
+}
+\newtcolorbox{boxC}{
+    colback = sub, % background color
+    boxrule = 0pt  % no borders
+}
+\newtcolorbox{boxD}{
+    code={\doublespacing},
+    colback = sub, 
+    colframe = main, 
+    boxrule = 0pt, 
+    toprule = 3pt, % top rule weight
+    bottomrule = 3pt % bottom rule weight
+}
+\newtcolorbox{boxE}{
+    colback = sub,
+    enhanced,
+    boxrule = 1.5pt, 
+    colframe = white, % making the base for dash line
+    borderline = {1.5pt}{0pt}{main, dashed} % add "dashed" for dashed line
+}
+\newtcolorbox{boxF}{
+    colback = sub, 
+    colframe = main, 
+    boxrule = 0pt, 
+    leftrule = 6pt % left rule weight
+}
+\newtcolorbox{boxG}{
+    colback = sub, 
+    colframe = main, 
+    boxrule = 0pt, 
+    toprule = 6pt % top rule weight
+}
+\newtcolorbox{boxH}{
+    sharpish corners, % better drop shadow
+    colback = sub, 
+    colframe = main, 
+    boxrule = 0pt, 
+    toprule = 4.5pt, % top rule weight
+    enhanced,
+    fuzzy shadow = {0pt}{-2pt}{-0.5pt}{0.5pt}{black!35} % {xshift}{yshift}{offset}{step}{options} 
+}
+\newtcolorbox{boxI}{
+    sharpish corners, % better drop shadow
+    boxrule = 0pt,
+    toprule = 4.5pt, % top rule weight
+    enhanced,
+    fuzzy shadow = {0pt}{-2pt}{-0.5pt}{0.5pt}{black!35} % {xshift}{yshift}{offset}{step}{options} 
+}
+%}}} $ TEXTBOX
+
+% {{{ PDFPLOTS для автоматического создания плотов
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+    % \pdfplotsset{compat=1.18, width=10cm}
+%}}} PDFPLOTS
+
+% {{{ EQ
+\usepackage{amsmath}      % A library of many standard math expressions
+    \numberwithin{equation}{chapter}
+    \usepackage{mathtext} 				% русские буквы в формулах
+\newcommand\pd[2]{\displaystyle\frac{\partial #1}{\partial #2}}
+\newcommand\td[2]{\displaystyle\frac{d #1}{d #2}}
+% }}} % EQ
+
+% {{{ PICS
+\usepackage{graphicx}           % Use this package to include images
+    \graphicspath{./pics/}
+% }}} % PICS
+
+\usepackage{tocloft}				% dots in the tableofcontents
+

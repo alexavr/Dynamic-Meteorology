@@ -1,0 +1,8 @@
+$ENV{'TEXINPUTS'}='myfonts/tex//:' . $ENV{'TEXINPUTS'};
+$ENV{'T1FONTS'}='myfonts/truetype//:' . $ENV{'T1FONTS'};
+$ENV{'AFMFONTS'}='myfonts/afm//:' . $ENV{'AFMFONTS'};
+$ENV{'TEXFONTMAPS'}='myfonts/map//:' . $ENV{'TEXFONTMAPS'};
+$ENV{'TFMFONTS'}='myfonts/tfm//:' . $ENV{'TFMFONTS'};
+$ENV{'TTFONTS'}='myfonts/ttf//:' . $ENV{'TTFONTS'}; 
+$ENV{'VFFONTS'}='myfonts/vf//:' . $ENV{'VFFONTS'};
+$ENV{'ENCFONTS'}='myfonts/enc//:' . $ENV{'ENCFONTS'};
