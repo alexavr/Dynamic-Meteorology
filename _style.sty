@@ -1,8 +1,12 @@
 % {{{ TEXT
 \usepackage{xcolor}					% Make managment of colors easier and flaxible
 \usepackage{cmap}					% поиск в PDF
-\usepackage{fontspec}
+% \usepackage{fontspec}
+\usepackage{tokcycle,etoolbox,fontspec}
     \setmainfont{Raleway}
+    % \setmainfont[]{Fira Sans}
+    % \setmathrm[]{FreeSerif}
+
 \usepackage[english,russian]{babel}	% локализация и переносы
 \usepackage{lipsum}
 \usepackage{sectsty}
@@ -14,8 +18,9 @@
 \frenchspacing
 \usepackage{setspace}				% междустрочный интервал
 \onehalfspacing						% задаем глобально 1.5
-\definecolor{vms}{HTML}{27AE60}    % Текст НФ отсутствовал, но был заменен лекциями ВМС
+\definecolor{vms}{HTML}{2874A6}    % Текст НФ отсутствовал, но был заменен лекциями ВМС
 \definecolor{noone}{HTML}{E74C3C}    % Текст НФ отсутствовал, но еще не был заменен
+\definecolor{done}{HTML}{27AE60}    % Текст НФ отсутствовал, но еще не был заменен
 % }}} % TEXT
 
 % {{{ PREAMBULE
@@ -40,14 +45,14 @@
 \definecolor{warn}{HTML}{FF5733}    % setting sub color to be used
 
 \newtcolorbox{warn}{
-    fontupper = \bf\large\color{white}, % font weight and size
+    fontupper = \color{white}, % font weight and size
     code={\onehalfspacing}, % line spacing
     % boxrule = 1.5pt,
     colframe = warn, % frame color
     colback = warn, % frame color
 }
-\newtcolorbox{boxA}{
-    fontupper = \bf\large, % font weight and size
+\newtcolorbox{info}{
+    % fontupper = \bf\large, % font weight and size
     code={\onehalfspacing}, % line spacing
     boxrule = 1.5pt,
     colframe = black % frame color
@@ -122,11 +127,44 @@
 %}}} PDFPLOTS
 
 % {{{ EQ
+\usepackage[makeroom]{cancel} % для возможности вычеркивать слагаемые в уравнениях
 \usepackage{amsmath}      % A library of many standard math expressions
     \numberwithin{equation}{chapter}
     \usepackage{mathtext} 				% русские буквы в формулах
+
+% % меняем шрифт только для чисел
+% \newfontfamily{\digits}{Arial}
+%     \XeTeXinterchartokenstate=1
+%     \chardef\CharNormal=0
+%     \makeatletter
+%     % Test for old and new versions of the latex kernel
+%     \ifx\e@alloc@intercharclass@top\@undefined
+%         \chardef\CharBound=255
+%     \else
+%         \chardef\CharBound=\e@alloc@intercharclass@top
+%     \fi
+%     \makeatother
+%     \newXeTeXintercharclass\CharNumbers
+%     \XeTeXcharclass`0=\CharNumbers
+%     \XeTeXcharclass`1=\CharNumbers
+%     \XeTeXcharclass`2=\CharNumbers
+%     \XeTeXcharclass`3=\CharNumbers
+%     \XeTeXcharclass`4=\CharNumbers
+%     \XeTeXcharclass`5=\CharNumbers
+%     \XeTeXcharclass`6=\CharNumbers
+%     \XeTeXcharclass`7=\CharNumbers
+%     \XeTeXcharclass`8=\CharNumbers
+%     \XeTeXcharclass`9=\CharNumbers
+    
+%     \XeTeXinterchartoks\CharNormal\CharNumbers={\begingroup\digits}
+%     \XeTeXinterchartoks\CharBound\CharNumbers={\begingroup\digits}
+%     \XeTeXinterchartoks\CharNumbers\CharNormal={\endgroup}
+%     \XeTeXinterchartoks\CharNumbers\CharBound={\endgroup}
+    
 \newcommand\pd[2]{\displaystyle\frac{\partial #1}{\partial #2}}
 \newcommand\td[2]{\displaystyle\frac{d #1}{d #2}}
+\newcommand\fd[1]{\displaystyle\frac{\partial #1}{dt}+
+                u\frac{\partial #1}{\partial x}+v\frac{\partial #1}{\partial y}+w\frac{\partial #1}{\partial z}}
 % }}} % EQ
 
 % {{{ PICS
