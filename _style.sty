@@ -1,4 +1,5 @@
 % {{{ TEXT
+\usepackage{lineno}                 % нумерация строк
 \usepackage{xcolor}					% Make managment of colors easier and flaxible
 \usepackage{cmap}					% поиск в PDF
 % \usepackage{fontspec}
@@ -6,7 +7,6 @@
     \setmainfont{Raleway}
     % \setmainfont[]{Fira Sans}
     % \setmathrm[]{FreeSerif}
-
 \usepackage[english,russian]{babel}	% локализация и переносы
 \usepackage{lipsum}
 \usepackage{sectsty}
@@ -131,6 +131,13 @@
 \usepackage{amsmath}      % A library of many standard math expressions
     \numberwithin{equation}{chapter}
     \usepackage{mathtext} 				% русские буквы в формулах
+    \usepackage{mathtools}% quard brackets
+
+\usepackage{amssymb} % для каппы в уравнениях
+
+\usepackage{tikz}
+    \usetikzlibrary{arrows}
+\newcommand\tikzmark[1]{\tikz[remember picture,overlay]\coordinate (#1);}
 
 % % меняем шрифт только для чисел
 % \newfontfamily{\digits}{Arial}
@@ -165,12 +172,24 @@
 \newcommand\td[2]{\displaystyle\frac{d #1}{d #2}}
 \newcommand\fd[1]{\displaystyle\frac{\partial #1}{dt}+
                 u\frac{\partial #1}{\partial x}+v\frac{\partial #1}{\partial y}+w\frac{\partial #1}{\partial z}}
+
+\newcommand\rb[1]{\displaystyle \left( #1 \right) }
+\newcommand\qb[1]{\displaystyle \left[ #1 \right] }
+% 
+
+\newcommand{\romans}[1]{\MakeUppercase{\romannumeral #1}}
+
 % }}} % EQ
 
 % {{{ PICS
 \usepackage{graphicx}           % Use this package to include images
     \graphicspath{./pics/}
     \usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{intersections,fadings,decorations.pathreplacing,3d}
+\usepgfplotslibrary{patchplots}
+\usetikzlibrary{patterns}
 % }}} % PICS
 
 \usepackage{tocloft}				% dots in the tableofcontents
