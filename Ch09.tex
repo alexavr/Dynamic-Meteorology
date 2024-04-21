@@ -177,10 +177,10 @@
 \end{align*}
 И начнем преобразовывать ее в $\sigma$-координаты с использование полученных выше соотношений, то получим (начиная с первого уравнения)
 \begin{multline*}
-    \underbrace{\pd{u}{t_{\sigma}}-\frac{\sigma}{p_s}\pd{p_s}{t_p}\pd{u}{\sigma}}_{\pd{u}{t_p}} + 
-    u\underbrace{\left[ \pd{u}{x_{\sigma}} - \frac{\sigma}{p_s} \pd{p_s}{x_p} \pd{u}{\sigma} \right]}_{\pd{u}{x_p}} + 
-    v\underbrace{\left[ \pd{u}{y_{\sigma}} - \frac{\sigma}{p_s} \pd{p_s}{y_p} \pd{u}{\sigma} \right]}_{\pd{u}{y_p}} + \\
-    \underbrace{\left[ \dot{\sigma}p_s + \sigma\td{p_s}{t} \right]}_{\tau} \underbrace{\frac{1}{p_s}\pd{u}{\sigma}}_{\pd{u}{p}} = 
+    \underbracket{\pd{u}{t_{\sigma}}-\frac{\sigma}{p_s}\pd{p_s}{t_p}\pd{u}{\sigma}}_{\pd{u}{t_p}} + 
+    u\underbracket{\left[ \pd{u}{x_{\sigma}} - \frac{\sigma}{p_s} \pd{p_s}{x_p} \pd{u}{\sigma} \right]}_{\pd{u}{x_p}} + 
+    v\underbracket{\left[ \pd{u}{y_{\sigma}} - \frac{\sigma}{p_s} \pd{p_s}{y_p} \pd{u}{\sigma} \right]}_{\pd{u}{y_p}} + \\
+    \underbracket{\left[ \dot{\sigma}p_s + \sigma\td{p_s}{t} \right]}_{\tau} \underbracket{\frac{1}{p_s}\pd{u}{\sigma}}_{\pd{u}{p}} = 
     -g\pd{H}{x_{\sigma}} + g\frac{\sigma}{p_s}\pd{p_s}{x_p}\pd{H}{\sigma} + fv
 \end{multline*}
 Раскрывая скобки, получим
@@ -195,7 +195,7 @@
 \end{multline*}
 Члены в левой части могут быть сгруппированы
 \begin{equation*}
-    -\frac{\sigma}{p_s}\pd{u}{\sigma} \underbrace{\left[ \pd{p_s}{t_p}+u\pd{p_s}{x_p}+v\pd{p_s}{y_p} \right]}_{\td{p_s}{t_p}} + 
+    -\frac{\sigma}{p_s}\pd{u}{\sigma} \underbracket{\left[ \pd{p_s}{t_p}+u\pd{p_s}{x_p}+v\pd{p_s}{y_p} \right]}_{\td{p_s}{t_p}} + 
     \frac{\sigma}{p_s}\td{p_s}{t_p}\pd{u}{\sigma} = 0,
 \end{equation*}
 Группируя члены и отбрасывая индекс $\sigma$ будем окончательно иметь
@@ -217,7 +217,7 @@
     \label{eq:consm1}
     \pd{u}{x_{\sigma}}+\pd{v}{y_{\sigma}}-
     \frac{\sigma}{p_s} \left[ \pd{p_s}{x_p} \pd{u}{\sigma}+\pd{p_s}{y_p}\pd{v}{\sigma}  \right] + \pd{\dot{\sigma}}{\sigma}+\frac{1}{p_s}\td{p_s}{t}+\\
-    \frac{\sigma}{p_s}\pd{}{\sigma} \underbrace{\left[ \pd{p_s}{t_p} + u\pd{p_s}{x_p}+v\pd{p_s}{y_p} \right]}_{\td{p_s}{t}} = 0.
+    \frac{\sigma}{p_s}\pd{}{\sigma} \underbracket{\left[ \pd{p_s}{t_p} + u\pd{p_s}{x_p}+v\pd{p_s}{y_p} \right]}_{\td{p_s}{t}} = 0.
 \end{multline}
 Т.к. $p_s$ не зависит от $\sigma$, то последний член в (\ref{eq:consm1}) есть 
 \begin{equation*}
@@ -232,8 +232,8 @@
 
 \begin{equation*}
     \cancel{\pd{p_s}{t}} + 
-    \underbrace{p_s\pd{u}{x_{\sigma}} + u\pd{p_s}{x_{\sigma}}}_{\pd{(p_su)}{x}} + 
-    \underbrace{p_s\pd{v}{y_{\sigma}} + v\pd{p_s}{y_{\sigma}}}_{\pd{(p_sv)}{y}} + 
+    \underbracket{p_s\pd{u}{x_{\sigma}} + u\pd{p_s}{x_{\sigma}}}_{\pd{(p_su)}{x}} + 
+    \underbracket{p_s\pd{v}{y_{\sigma}} + v\pd{p_s}{y_{\sigma}}}_{\pd{(p_sv)}{y}} + 
     p_s\pd{\dot{\sigma}}{\sigma} = 0.
 \end{equation*}
 Группируя члены и опуская индекс $\sigma$ имеем
@@ -393,8 +393,8 @@
     \begin{equation}
     \label{eq:hybridframe}
         \varepsilon= \sigma_{\varepsilon_s} =
-        \underbrace{\left( \frac{p-p_T}{p_s-p_T} \right)}_{\sigma}
-        \underbrace{\left( \frac{p_r(z_s) - p_T}{p_r(0) - p_T} \right)}_{\varepsilon_s}
+        \underbracket{\left( \frac{p-p_T}{p_s-p_T} \right)}_{\sigma}
+        \underbracket{\left( \frac{p_r(z_s) - p_T}{p_r(0) - p_T} \right)}_{\varepsilon_s}
     \end{equation}
 Первый множитель здесь -- стандартная $\sigma$-система, $p_s$ -- давление у поверхности, $p_T$ -- давление на верхней границе области, $p_r(z_s)$ -- давление на данной высоте в стандартной атмосфере, $p_r(0)$ -- давление на уровне моря в стандартной атмосфере. 
 

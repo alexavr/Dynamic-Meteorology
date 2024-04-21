@@ -1,6 +1,8 @@
 % {{{ TEXT
 \usepackage{lineno}                 % нумерация строк
-\usepackage{xcolor}					% Make managment of colors easier and flaxible
+
+% \usepackage{xcolor}					% Make managment of colors easier and flaxible
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{cmap}					% поиск в PDF
 % \usepackage{fontspec}
 \usepackage{tokcycle,etoolbox,fontspec}
@@ -139,6 +141,25 @@
     \usetikzlibrary{arrows}
 \newcommand\tikzmark[1]{\tikz[remember picture,overlay]\coordinate (#1);}
 
+% https://tex.stackexchange.com/questions/528657/curvilinear-surface-with-grid-lines-in-tikz
+\usepackage{tikz-3dplot}
+\usepgflibrary{fpu}
+\usepgfmodule{nonlineartransformations} 
+\newcommand{\PgfmathsetmacroFPU}[2]{\begingroup% https://tex.stackexchange.com/a/503835
+\pgfkeys{/pgf/fpu,/pgf/fpu/output format=fixed}%
+\pgfmathsetmacro{#1}{#2}%
+\pgfmathsmuggle#1\endgroup}%
+\makeatletter
+\def\fancyspheretransformation{% similar to the pgfmanual section 103.4.2
+\PgfmathsetmacroFPU{\XYTwo}{\pgf@x*\pgf@x+\pgf@y*\pgf@y}%
+\PgfmathsetmacroFPU{\zvalue}{(1.2*\XYTwo)/(\XYTwo/\spradius+4*\spradius)}%
+\PgfmathsetmacroFPU{\xvalue}{(2*\spradius+\zvalue)/(2*\spradius)*\pgf@x}%
+\PgfmathsetmacroFPU{\yvalue}{(2*\spradius+\zvalue)/(2*\spradius)*\pgf@y}%
+\PgfmathsetmacroFPU{\myx}{cos(\tdplotmainphi)*\xvalue+sin(\tdplotmainphi)*\yvalue}%
+\PgfmathsetmacroFPU{\myy}{-cos(\tdplotmaintheta)*sin(\tdplotmainphi)*\xvalue+cos(\tdplotmaintheta)*cos(\tdplotmainphi)*\yvalue-sin(\tdplotmaintheta)*\zvalue}%
+\pgf@y=\myy pt% \typeout{z=\zvalue,x=\xvalue,y=\yvalue}%
+\pgf@x=\myx pt%
+} 
 % % меняем шрифт только для чисел
 % \newfontfamily{\digits}{Arial}
 %     \XeTeXinterchartokenstate=1
@@ -179,6 +200,9 @@
 
 \newcommand{\romans}[1]{\MakeUppercase{\romannumeral #1}}
 
+\newcommand{\ub}{\underbracket[1.2pt]}
+\newcommand{\ob}{\overbracket[1.2pt]}
+
 % }}} % EQ
 
 % {{{ PICS
@@ -194,3 +218,4 @@
 
 \usepackage{tocloft}				% dots in the tableofcontents
 
+\usepackage{diagbox}  % красивые таблицы

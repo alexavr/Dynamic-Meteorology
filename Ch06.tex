@@ -122,17 +122,17 @@
     \end{equation}
     Пользуясь соотношениями (\ref{eq:ch6-px2p}) - (\ref{eq:ch6-pt2p}) преобразуем уравнение (\ref{eq:ch6-DuDt_geost})
     \begin{multline*} 
-        {\overbrace{\pd{u}{t_p}+\pd{u}{p}\pd{p}{t}}^{\pd{u}{t}}}+
-        u{\overbrace{\left( \pd{u}{x_p} + \pd{u}{p}\pd{p}{x} \right)}^{\pd{u}{x}}} +
-        v{\overbrace{\left( \pd{u}{y_p} + \pd{u}{p}\pd{p}{y} \right)}^{\pd{u}{y}}} + \\
-        + w{\underbrace{\left( \pd{u}{p}\pd{p}{z} \right)}_{\pd{u}{z}}} = 
-         -\frac{1}{\rho} {\underbrace{\left( -\pd{p}{z}\pd{z}{x_p} \right)}_{\pd{p}{x}}} + fv
+        {\ob{\pd{u}{t_p}+\pd{u}{p}\pd{p}{t}}^{\pd{u}{t}}}+
+        u{\ob{\left( \pd{u}{x_p} + \pd{u}{p}\pd{p}{x} \right)}^{\pd{u}{x}}} +
+        v{\ob{\left( \pd{u}{y_p} + \pd{u}{p}\pd{p}{y} \right)}^{\pd{u}{y}}} + \\
+        + w{\ub{\left( \pd{u}{p}\pd{p}{z} \right)}_{\pd{u}{z}}} = 
+         -\frac{1}{\rho} {\ub{\left( -\pd{p}{z}\pd{z}{x_p} \right)}_{\pd{p}{x}}} + fv
     \end{multline*}
     Произведем перегруппировку членов в левой части, а в правой части применим уравнение гидростатики $\left( \pd{p}{z}=-\rho g \right)$ и высоту изобарической поверхности обозначим $z=H$. Получим
     \begin{equation*}
         % \label{eq:ch6-DuDt2p2}
         \pd{u}{t_p}+u\pd{u}{x_p}+v\pd{u}{y_p}+
-        \pd{u}{p} {\underbrace{ \left( \fd{p} \right) }_{\tau}} = - g \pd{H}{x_p}+fv.
+        \pd{u}{p} {\ub{ \left( \fd{p} \right) }_{\tau}} = - g \pd{H}{x_p}+fv.
     \end{equation*}
     Так как выражение в скобках представляет собой $\tau$, будем иметь окончательно
     \begin{equation}
@@ -172,7 +172,7 @@
     \end{align*}
     Группируя первые четыре члена
     \begin{align*}
-        \pd{}{z} {\underbrace{\left[ \fd{p} \right]}_{\tau}} - \pd{u}{z}\pd{p}{x}-\pd{v}{z}\pd{p}{y}-\pd{w}{z}\pd{p}{z}+\pd{p}{z} \left( \pd{u}{x} + \pd{v}{y} + \pd{w}{z} \right) = 0.
+        \pd{}{z} {\ub{\left[ \fd{p} \right]}_{\tau}} - \pd{u}{z}\pd{p}{x}-\pd{v}{z}\pd{p}{y}-\pd{w}{z}\pd{p}{z}+\pd{p}{z} \left( \pd{u}{x} + \pd{v}{y} + \pd{w}{z} \right) = 0.
     \end{align*}
    С использование соотношений (\ref{eq:tau}), (\ref{eq:fx2p})--(\ref{eq:fz2p}) имеем
    \begin{multline*}
